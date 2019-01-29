@@ -1,0 +1,122 @@
+@mixin screen($size, $property, $value) {
+    
+    @if ($size == 480){
+      @media screen and (min-width: 480px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size == 540){
+      @media screen and (min-width: 540px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size == 640){
+      @media screen and (min-width: 640px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size == 720){
+      @media screen and (min-width: 720px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size == 768){
+      @media screen and (min-width: 768px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size == 1024){
+      @media screen and (min-width: 1024px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size == 1080){
+      @media screen and (min-width: 1080px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size == 1280){
+      @media screen and (min-width: 1280px)
+      { 
+        #{$property}: $value
+      }
+    }
+
+    @if ($size > 1280){
+      @media screen and (min-width: 1281px)
+      { 
+        #{$property}: $value
+      }
+    }
+  }
+
+.chat {
+  width: 100%;
+  @include screen(1024,"width", 78%);
+  height: 100vh;
+  @include screen(1024,"height", auto);
+  padding: 1em;
+  position: relative;
+  @include screen(1024,"margin", 0 auto);
+  @include screen(1024,"margin-top", 2em);
+  max-width: 1024px;
+  @include screen(1024,"border", 1px solid rgba(0,0,0,0.3));
+  @include screen(1024,"box-shadow", 10px 10px 5px 0px rgba(0,0,0, 0.75));
+  background-color: white;
+  & .chat-screen {
+    padding: 1em;
+    overflow-y: auto;
+    height: 60vh;
+    @include screen(1024,"height", 70vh);
+    background: linear-gradient(135deg, #feffff 0%,#d2ebf9 100%);
+    & .chat-screen-temp_message{
+        font-size: 0.8em;
+        font-style: italic;
+        font-family: 'Times New Roman', Times, serif;
+    }
+  }
+  & .chat-footer {
+    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 1em;
+    margin-top: 1em;
+    @include screen(1024,"margin-top", 3em);
+    bottom: 0;
+    width: 100%;
+    & .chat-footer-form {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      & input{
+        margin-right: 1em;
+        flex-grow: 1;
+        width: 188px;
+        padding: 1em;
+        border-radius: 5px;
+        
+      }
+      & button{
+        width: 100px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
