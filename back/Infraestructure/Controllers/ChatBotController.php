@@ -15,8 +15,8 @@ class ChatBotController extends Controller {
 
     private $repository = null;
 
-    public function __construct(I_InbentaRepository $_repository) {
-        parent::__construct();
+    public function __construct(I_InbentaRepository $_repository, $conf) {
+        parent::__construct($conf);
         $this->repository = $_repository;
     }
 
@@ -25,9 +25,9 @@ class ChatBotController extends Controller {
      * and swapi API
      * @param _repository We get by use of dependency injection an object which implements the I_InbentaRepository interface. 
      */
-    public static function getInstance(I_InbentaRepository $_repository) {
+    public static function getInstance(I_InbentaRepository $_repository, $conf) {
 
-        return new ChatBotController($_repository);
+        return new ChatBotController($_repository, $conf);
     }
 
     /**

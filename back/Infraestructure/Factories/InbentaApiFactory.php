@@ -11,7 +11,7 @@ require_once(__ROOT__ . "/Infraestructure/Controllers/ChatBotController.php");
 class InbentaApiFactory {
 
     public static function create($conf) {
-        return ChatBotController::getInstance(InbentaRepositoryFactory::create($conf));
+        return ChatBotController::getInstance(InbentaRepositoryFactory::create($conf), $conf);
     }
 
 }

@@ -12,6 +12,7 @@ class Conf {
     private $api_key = "nyUl7wzXoKtgoHnd2fB0uRrAv0dDyLC+b4Y6xngpJDY=";
     private $secret = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9qZWN0IjoieW9kYV9jaGF0Ym90X2VuIn0.anf_eerFhoNq6J8b36_qbD4VqngX79-yyBKWih_eA1-HyaMe2skiJXkRNpyWxpjmpySYWzPGncwvlwz5ZRE7eg";
     private $starwar_api = "https://swapi.co/api";
+    private $client_address = "http://inbenta.surge.sh";
     private static $instance = null;
 
     public function __get($property) {

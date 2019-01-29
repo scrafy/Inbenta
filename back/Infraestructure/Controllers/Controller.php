@@ -9,8 +9,11 @@ require_once(__ROOT__ . "/Infraestructure/Models/Output.php");
  * @author José Luis
  */
 abstract class Controller {
-
-    public function __construct() {
+    
+    protected $conf = null;
+    
+    public function __construct($conf) {
+        $this->conf = $conf;
         $this->isPreflightRequest();
     }
 
@@ -34,7 +37,7 @@ abstract class Controller {
 
         if (!headers_sent()) {
             header('Content-Type: application/json');
-            header('Access-Control-Allow-Origin: http://inbenta.surge.sh');
+            header("Access-Control-Allow-Origin: ".$this->conf->client_address);
             header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
             header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
             header("Allow: GET, POST, OPTIONS");

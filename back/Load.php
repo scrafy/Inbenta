@@ -16,11 +16,12 @@ require_once("Conf.php");
  * @return A standar response notifying about of the error happened
  * */
 function our_global_exception_handler($exception) {
-
+    
+    $conf = Conf::getInstance();
     $code = $exception->getCode() === 0 ? 500 : $exception->getCode();
     //$code = 200;
     if (!headers_sent()) {
-        header('Access-Control-Allow-Origin: http://inbenta.surge.sh');
+        header("Access-Control-Allow-Origin: ".$conf->client_address);
         header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
         header("Access-Control-Allow-Methods: GET, POST");
         header("Allow: GET, POST");
